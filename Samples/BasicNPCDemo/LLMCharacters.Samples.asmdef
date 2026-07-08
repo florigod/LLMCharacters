@@ -1,0 +1,19 @@
+{
+    "name": "LLMCharacters.Samples",
+    "rootNamespace": "LLMCharacters.Samples",
+    "references": [
+        "LLMCharacters.Runtime",
+        "UnityEngine.UI",
+        "Unity.TextMeshPro",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

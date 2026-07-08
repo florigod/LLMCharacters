@@ -1,0 +1,78 @@
+{
+	"assetNamespace": "fab",
+	"listing":
+	{
+		"averageRating": 0,
+		"createdAt": "",
+		"description": "<p>A stylized low poly 3D character suitable for games, prototypes, mobile projects, and stylized environments.</p><p></p>",
+		"isAiForbidden": false,
+		"isAiGenerated": false,
+		"lastUpdatedAt": "",
+		"listingType": "3d-model",
+		"media": "https://media.fab.com/image_previews/gallery_images/48db93fb-407d-4bd4-8227-151238caccc5/fba05abc-6e96-4e69-a2a2-adea2195b4c7.png",
+		"publishedAt": "2026-06-19T18:37:03.562633Z",
+		"reviewCount": 0,
+		"thumbnail": "https://media.fab.com/image_previews/gallery_images/f9262567-4db3-42ed-bda1-0779ba8db227/f7ee704e-d263-46a5-b005-98feb46daa85.png",
+		"title": "Low Poly 3D Character (Static Mesh)",
+		"uid": "44ee370d-9340-4b56-abd8-604b6de4e36b",
+		"updatedAt": "",
+		"user":
+		{
+			"coverImageUrl": "https://cdn1.epicgames.com/fab/seller/o-tcefycl5sr947s2zgn9xk6wg9jl7vx/backgroundImage/blob-1920x540-ddaf7979b677addcdc6a65807efc4afd.jpg",
+			"profileImageUrl": "https://cdn1.epicgames.com/fab/seller/o-tcefycl5sr947s2zgn9xk6wg9jl7vx/profileImage/blob-500x500-af052cdfd959c7e8ea599f61e3ed0a02.jpg",
+			"sellerName": "RIVON",
+			"uid": "c73a4060-d9c8-4fbc-b02c-46145f7ae0f0"
+		},
+		"tags": [
+			{
+				"name": "Lowpoly",
+				"slug": "lowpoly",
+				"uid": "451806dc-649e-43b7-9c2e-a54485de14b6"
+			},
+			{
+				"name": "Character",
+				"slug": "character",
+				"uid": "f07e8c06-66ed-4396-81cf-108f0afcb6d6"
+			}
+		],
+		"category":
+		{
+			"name": "Humanos",
+			"path": "characters-creatures/humans",
+			"slug": "characters-creatures--humans",
+			"uid": "0a4f7590-4376-400b-a6e4-c7a658cbab47"
+		},
+		"assetFormats": [
+			{
+				"assetFormatType":
+				{
+					"name": "FBX",
+					"groupName": "Formatos de intercambio 3D",
+					"code": "fbx",
+					"icon": "cube",
+					"extensions": [
+						"fbx"
+					]
+				}
+			}
+		],
+		"_PluginMetas":
+		{
+			"apiDataVersion": "0.0.1",
+			"entitlementUid": "c11601cf-d518-470e-9eba-9d4ac54df2f9",
+			"cacheSize": 0,
+			"downloaded": []
+		}
+	},
+	"target": "",
+	"quality": "",
+	"format": "fbx",
+	"fileId": "d33b20ce-253b-4cd9-9723-7613342500db",
+	"platformIncluded": "",
+	"distributionPointBaseUrls": [],
+	"distributionMethod": "",
+	"entitlementUid": "c11601cf-d518-470e-9eba-9d4ac54df2f9",
+	"invertedNormal": false,
+	"isConverted": false,
+	"isQuixel": false
+}

@@ -1,0 +1,36 @@
+{
+  "name": "com.juanmathe.llmcharacters",
+  "version": "1.0.0",
+  "displayName": "LLM Characters",
+  "description": "Connect Unity NPCs to Claude (Anthropic), Ollama, and other LLMs for natural in-game conversations with real-time token streaming. Features dynamic layered context, sliding history window, typewriter dialogue UI, and a provider interface for easy backend swapping.",
+  "unity": "6000.0",
+  "documentationUrl": "",
+  "changelogUrl": "",
+  "licensesUrl": "",
+  "keywords": [
+    "llm",
+    "npc",
+    "ai",
+    "claude",
+    "anthropic",
+    "ollama",
+    "dialogue",
+    "streaming",
+    "conversation",
+    "characters"
+  ],
+  "dependencies": {
+    "com.unity.ugui": "2.0.0"
+  },
+  "author": {
+    "name": "Juan Manuel Mathé",
+    "email": "mathe.florian.03@gmail.com"
+  },
+  "samples": [
+    {
+      "displayName": "Basic NPC Demo",
+      "description": "A minimal scene with two NPCs (one on Anthropic, one on Ollama), dialogue UI, and a WeatherController showing dynamic world context injection.",
+      "path": "Samples/BasicNPCDemo"
+    }
+  ]
+}

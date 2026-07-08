@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a642a498ecf3f4ed984d95bc0ac77ffe, type: 3}
+  m_Name: BarContext
+  m_EditorClassIdentifier: LLMNpcSDK.Runtime::LLMNpcSDK.NPCContext
+  specificity: 20
+  sceneKnowledge: 'The tavern is a modern bar. Regular customers include Old Marta
+    (not present now), and Drunky the Cat, that''s too drunk now. The tavern-keeper
+    doesnt want to lend more money to the cat.
+
+    The bar has some seats and the
+    typical bar counter. It also has  darts and a ''comfortable'' pool table, where
+    the Cat is standing on.'
