@@ -3,6 +3,14 @@ Unity package built to explore LLM integration in games: real-time streaming and
 
 Supports Unity 6. Zero external dependencies.
 
+## What it is for
+This package allows the communication of Unity with LLMs, with an architecture designed for prompt-building for various NPCs. 
+### Context Handling
+The system allows different levels of context, where different NPCs may share some of those contexts (just like the use of interfaces in coding). For example, every NPC may share a global context, and all the tavern NPCs may share a more specific context, where every NPCs has their particular context and personnality on top.
+The context is built to be dynamic, so events that happen on runtime can be saved into the context and influence the NPC's dialogues.
+### LLMs
+The package presents a class for LLM provider, with 2 LLM configurations already built (one for Anthropic's API, and another for Ollama). Those 2 sepcific LLMs already show the achievable diversity of the system: One could use local and small LLMs such as Ollama, for wireless and safe LLM usage, or otherwise use top-market LLMs' APIs such as Claude, for getting the best NPC answers. The system is built for easy and interchangeable LLM integration, so that you can test and use the LLM that suits your project best. 
+
 ## How it works
 <!-- GIF of typewriter dialogue here -->
 LLM Characters connects Unity NPCs to language models via HTTP streaming. When a player sends a message, the NPC's response arrives token by token, and can be written on screen as soon as possible, or using a type-writter effect like in the demo.
