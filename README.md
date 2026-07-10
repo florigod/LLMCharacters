@@ -28,7 +28,7 @@ NPCBrain → StreamHandler → ILLMProvider (Anthropic / Ollama / Mock)
 
 ## NPC Context System
 
-![Context Layers](Media/ContextProviders)
+![Context Layers](Media/ContextProviders.png)
 
 
 What an NPC knows is assembled from a stack of context layers, each with a `Specificity` value that determines precedence on key collisions:
@@ -51,7 +51,7 @@ npcContext.Set("player_reputation", "trusted");
 
 These entries get merged into the system prompt automatically before every request.
 
-In these screenshots, the NPCs are reacting to a randomized Weather condition, in this case: Stormy at Noon.
+#### In these screenshots, the NPCs are reacting to a randomized Weather condition, in this case: Stormy at Noon.
 
 ![Barn reacting to stormy weather](Media/Stormy_Barn.png)
 ![Cat reacting to stormy weather](Media/Stormy_Cat.png)
@@ -80,6 +80,20 @@ The `ILLMProvider` interface decouples the SDK from any specific LLM backend. Ea
 - Response Format controls per NPC: sentence cap, asterisk actions, emoji, custom rules
 - JSONL session logging with token estimates and cost tracking
 - Provider-agnostic generation config (`LLMConfig`): credentials live on each provider component, not in shared assets
+
+### Showcase of characters with personnality reacting to Dynamic context injection. 
+Here we'll see how the player injects a new World Context "The player has just beaten the Demon God and saved the village", this can be done programatically in runtime for any relevant event (it is done via UI for the demo showcase). With that new context in place, the characters mold their answers and since it's a World-Context injection, it reaches all NPCs.
+
+World Context Injection
+![World Context injection](Media/InjectingDynamicContext.gif)
+
+Cat Answers with personnality and respecting dynamic context
+![Cat reacts to dynamic context injection](Media/CatReactionToContext.gif)
+
+Bartender Answers with personnality and respecting dynamic context
+![Bartender reacts to dynamic context injection](Media/BarnReactionContext.gif)
+
+
 
 ## Limitations & production considerations
 
