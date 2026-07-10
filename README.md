@@ -122,4 +122,4 @@ Or clone and add as a local package.
 Full API reference, context system details, and provider setup guides are in [`Documentation~/`](Documentation~/).
 
 
-### Author: Florian Mathe
+### Author: Florian Mathe, 2026
