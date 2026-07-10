@@ -1,6 +1,8 @@
 # LLM Characters for Unity 6
 
-Connect NPCs to Claude (Anthropic) via streaming SSE. Drop-in ScriptableObject configuration, event-driven architecture, zero external dependencies.
+Connect Unity NPCs to language models with real-time token streaming and dynamic context injection. Supports Anthropic's Claude (cloud) and Ollama (local). Drop-in ScriptableObject configuration, event-driven architecture, zero external dependencies.
+
+Each NPC's knowledge is assembled from a stack of context layers — shared or private ScriptableObjects that get merged into the system prompt before every request. Any game system can write into those layers at runtime, so NPCs react to the current game state without extra wiring.
 
 ---
 
@@ -9,7 +11,7 @@ Connect NPCs to Claude (Anthropic) via streaming SSE. Drop-in ScriptableObject c
 | Asset | Purpose |
 |---|---|
 | `NPCPersonality` | Character identity, tone, background, and response format rules |
-| `NPCContext` | Scene knowledge (prose) + runtime key/value entries — usable as an individual, group, or type layer |
+| `NPCContext` | Scene knowledge (prose) + runtime key/value entries. Usable as an individual, group, or type layer |
 | `WorldContext` | Dynamic game state shared across all NPCs (weather, time, events) |
 | `LLMConfig` | Provider-agnostic generation params: model, temperature, token limits |
 
@@ -21,8 +23,10 @@ Both `NPCContext` and `WorldContext` derive from `ContextProviderBase` and imple
 ## Layered Context & Specificity
 
 An NPC's factual knowledge is assembled from an ordered set of **context layers**.
-`NPCBrain` exposes a `Context Providers` list — drag in any mix of context assets,
-**in any order**. Precedence does *not* come from list order; it comes from each
+`NPCBrain` exposes a `Context Providers` list, drag in any mix of context assets
+**in any order**. Given that programatical context may be stored in dictionnaries,
+there's a precedence logic to different contexts modifying the same keys with 
+different values. Precedence does *not* come from list order; it comes from each
 provider's **`Specificity`** value.
 
 ```
@@ -33,7 +37,7 @@ Individual specificity 100   this NPC's NPCContext private to one NPC
 ```
 
 **Sharing is free:** a ScriptableObject is a single instance by reference. Point two
-NPCs at the same `TavernContext.asset` and they share it live — a `Set()` from one is
+NPCs at the same `TavernContext.asset` and they share it live, a `Set()` from one is
 seen by both on their next turn. No events or subscriptions needed.
 
 **Collision rule:** when two layers define the same key (e.g. World says
@@ -52,11 +56,13 @@ the same list. The SDK core never needs to change.
 
 `NPCContext` exposes a **Scene Knowledge** text field (Inspector > `sceneKnowledge`) for static facts the NPC always knows about their environment.
 
-**Why it matters:** Without grounding, the LLM may accept false player assertions. If a player says "the tavern is empty", the NPC will agree — because nothing in the prompt contradicts it. Scene Knowledge prevents this.
+**Why it matters:** Without grounding, the LLM may accept false player assertions. If a player says "the tavern is empty", the NPC will agree — because nothing in the prompt contradicts it. Scene Knowledge prevents this and it's important to set it correctly.
+Please note: a Response Format should also include the behaviour to be dismissive when asked for context that isnt clear in the scene prompt, see **Response Format** section.
 
 **Example value for a tavern keeper:**
 ```
 The tavern has 20 seats. On a normal night, 8-12 regulars are present.
+The tavern is worn out by time, but has cozy lighting and wooden architecture. 
 Regular customers include Old Marta (corner seat, drinks ale alone),
 the blacksmith Henrik, and three miners from the east ridge.
 Behind the bar: two barrels of ale, one of mead. Specialty: beef stew.
@@ -87,14 +93,16 @@ Scene Knowledge is set in the Inspector (static, per-asset) or written programma
 
 These rules are appended at the end of the `## Response Rules` section in the system prompt, after the standard rules.
 
+A player asking what colour are the shoes of the NPCs may be problematic if we didnt give that context. Test if your NPC is accurately dismissive to these type of questions, and be sure to add direct rules in the additionalResponseRules, such as "Be dismissive for questions regarding context that you're unsure about", to parch allucinations that could be contradictory to what the player sees in-game.
+
 ---
 
 ## Architecture
 
 ```
 NPCBrain → StreamHandler → ILLMProvider (AnthropicProvider, OllamaProvider, or MockProvider)
-               ↑
-    OnRequestStarted / OnTokenReceived / OnResponseComplete / OnError
+               ↓
+   OnRequestStarted / OnTokenReceived / OnResponseComplete / OnError
                ↓
            DialogueUI  (or your own subscriber)
 ```
@@ -145,3 +153,5 @@ Application.persistentDataPath/LLMCharacters/logs/<NPCName>_<timestamp>.jsonl
 ```
 
 The full path is printed to the Unity Console on session start. Each entry includes: system prompt, user message, NPC response, duration, estimated token counts, and estimated cost (Haiku 4.5 pricing).
+
+## Author: Florian Mathe, 2026
