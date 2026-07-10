@@ -63,7 +63,7 @@ namespace LLMCharacters.Samples
                 cameraTransform.localEulerAngles = new Vector3(_pitch, 0f, 0f);
         }
 
-        private static bool IsTypingInField()
+        public static bool IsTypingInField()
         {
             if (EventSystem.current == null) return false;
             var sel = EventSystem.current.currentSelectedGameObject;
