@@ -85,6 +85,7 @@ The `ILLMProvider` interface decouples the SDK from any specific LLM backend. Ea
 Here we'll see how the player injects a new World Context "The player has just beaten the Demon God and saved the village", this can be done programatically in runtime for any relevant event (it is done via UI for the demo showcase). With that new context in place, the characters mold their answers and since it's a World-Context injection, it reaches all NPCs.
 
 World Context Injection
+
 ![World Context injection](Media/InjectingDynamicContext.gif)
 
 Cat Answers with personnality and respecting dynamic context
