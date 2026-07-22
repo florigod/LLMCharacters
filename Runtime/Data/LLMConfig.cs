@@ -3,10 +3,8 @@ using UnityEngine;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Provider-agnostic generation parameters: what to generate, not how or where
-    /// to connect. Connection and credentials (API key, endpoint URL, auth headers)
-    /// live on each provider component instead, so adding a provider never requires
-    /// editing this shared asset.
+    /// Provider-agnostic generation parameters. Credentials and endpoints live on each
+    /// provider component, not here — swapping providers doesn't require touching this asset.
     /// </summary>
     [CreateAssetMenu(fileName = "LLMConfig", menuName = "LLM Characters/LLM Config")]
     public class LLMConfig : ScriptableObject

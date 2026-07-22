@@ -21,10 +21,8 @@ namespace LLMCharacters
     }
 
     /// <summary>
-    /// Merges an ordered-by-specificity set of context providers into a single
-    /// resolved context. Wiring order is irrelevant — precedence comes from each
-    /// provider's Specificity. Higher specificity overrides lower on key collisions;
-    /// equal specificity is treated as a peer conflict and logged.
+    /// Merges all context providers into one resolved snapshot. Specificity drives precedence;
+    /// equal-specificity collisions on the same key are treated as a design error and logged.
     /// </summary>
     public class ContextAggregator
     {

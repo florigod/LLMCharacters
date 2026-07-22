@@ -11,17 +11,10 @@ using UnityEngine;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Connects to a local Ollama server (ollama.com) and streams the response
-    /// as newline-delimited JSON (NDJSON) — one full JSON object per line, not
-    /// Server-Sent Events like AnthropicProvider.
-    ///
-    /// Requires Ollama installed and already running locally, with the target
-    /// model already pulled (e.g. `ollama pull llama3.2`), before Play mode
-    /// starts. The SDK does not install, launch, or manage the model — that is
-    /// the developer's responsibility. Ollama needs no API key, so this provider
-    /// has no credential field — its only connection setting is the server URL.
-    ///
-    /// Uses System.Net.Http.HttpClient — not supported on WebGL builds.
+    /// Connects to a local Ollama server and streams NDJSON responses.
+    /// Requires Ollama already running with the target model pulled before Play mode.
+    /// The SDK doesn't manage installation or model downloads — that's on you.
+    /// Not supported on WebGL builds.
     /// </summary>
     public class OllamaProvider : MonoBehaviour, ILLMProvider
     {

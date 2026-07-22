@@ -8,12 +8,8 @@ using UnityEngine;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Development provider that requires no API key or network connection.
-    /// Streams a configurable template response word by word to simulate
-    /// the typewriter effect and verify the full SDK pipeline.
-    ///
-    /// Swap AnthropicProvider for MockProvider in the Inspector to develop
-    /// UI, context injection, and conversation flow at zero cost.
+    /// Offline provider for developing UI and wiring without burning API credits.
+    /// Streams a template response word by word to exercise the full pipeline.
     /// </summary>
     public class MockProvider : MonoBehaviour, ILLMProvider
     {

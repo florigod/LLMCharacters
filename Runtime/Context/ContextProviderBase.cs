@@ -4,11 +4,8 @@ using UnityEngine;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Base ScriptableObject for key/value context stores. Extend this to create
-    /// shareable context assets at any layer — world, location/group, type/archetype,
-    /// or individual. Multiple NPCs can reference the same asset to share state:
-    /// because a ScriptableObject is a single instance by reference, a write via
-    /// Set() is immediately visible to every NPC that reads it.
+    /// Base class for all context layers. Because ScriptableObjects are shared by reference,
+    /// a Set() call from any game system is immediately visible to every NPC pointing at the same asset.
     /// </summary>
     public abstract class ContextProviderBase : ScriptableObject, IContextProvider
     {

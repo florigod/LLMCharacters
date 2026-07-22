@@ -3,10 +3,8 @@ using UnityEngine;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Shared world state readable by all NPCs. Any game system can write here;
-    /// every NPC reads it when building its system prompt. Lowest specificity by
-    /// default (0) so more specific layers can override individual keys.
-    /// Create a single WorldContext asset and reference it from every NPC.
+    /// Global context shared by all NPCs. Any game system can write here; the changes
+    /// are picked up on each NPC's next turn. Create one asset and reference it everywhere.
     /// </summary>
     [CreateAssetMenu(fileName = "WorldContext", menuName = "LLM Characters/World Context")]
     public class WorldContext : ContextProviderBase

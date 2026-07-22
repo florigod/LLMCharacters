@@ -12,12 +12,9 @@ using UnityEngine;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Connects to api.anthropic.com/v1/messages and streams the response via
-    /// Server-Sent Events (SSE). Uses System.Net.Http.HttpClient — not supported
-    /// on WebGL builds. For WebGL, use MockProvider instead.
-    ///
-    /// One HttpClient instance is shared across all provider instances
-    /// (the correct .NET pattern to avoid socket exhaustion).
+    /// Streams responses from Anthropic's Messages API via SSE.
+    /// Not supported on WebGL — use MockProvider there instead.
+    /// HttpClient is shared across instances to avoid socket exhaustion.
     /// </summary>
     public class AnthropicProvider : MonoBehaviour, ILLMProvider
     {
@@ -133,11 +130,8 @@ namespace LLMCharacters
 
         // ── SSE / JSON parsers ──────────────────────────────────────────────
 
-        /// <summary>
-        /// Extracts the text value from a content_block_delta / text_delta SSE chunk.
-        /// Returns null for any other event type (message_start, ping, etc.).
-        /// Handles JSON string escape sequences inline.
-        /// </summary>
+        // Extracts the streamed text from a content_block_delta/text_delta SSE chunk.
+        // Returns null for any other event type (message_start, ping, etc.).
         private static string ExtractTextToken(string data)
         {
             if (!data.Contains("\"content_block_delta\"") || !data.Contains("\"text_delta\""))

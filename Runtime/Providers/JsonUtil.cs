@@ -5,9 +5,8 @@ using System.Text;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Minimal JSON string escaping/extraction shared by providers that build
-    /// requests and parse streamed responses by hand (no external JSON library
-    /// dependency, per SDK design).
+    /// JSON string escaping and extraction used by providers that parse streamed responses by hand.
+    /// No external JSON dependency, by design.
     /// </summary>
     internal static class JsonUtil
     {
@@ -38,15 +37,10 @@ namespace LLMCharacters
         }
 
         /// <summary>
-        /// Finds `marker` in <paramref name="json"/> and decodes the JSON string
-        /// value that immediately follows it (handles \", \\, \n, \r, \t, \b, \f,
-        /// \uXXXX). Returns null if the marker isn't found.
+        /// Finds marker in json and decodes the JSON string value that immediately follows it.
+        /// fromEnd: search from last occurrence — needed for Anthropic SSE chunks where "text"
+        /// appears after other keys that might match the same marker earlier in the line.
         /// </summary>
-        /// <param name="fromEnd">
-        /// Search from the last occurrence instead of the first. Anthropic's SSE
-        /// chunks put the text field at the end of the delta object, after other
-        /// keys that could contain the same substring earlier in the line.
-        /// </param>
         public static string ExtractStringValue(string json, string marker, bool fromEnd = false)
         {
             int markerIdx = fromEnd

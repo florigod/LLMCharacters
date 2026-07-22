@@ -7,11 +7,8 @@ using UnityEngine;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Bridges the ILLMProvider with the rest of the scene via C# events.
-    /// Attach to the same GameObject as NPCBrain. Assign the provider component
-    /// (AnthropicProvider or MockProvider) in the Inspector.
-    ///
-    /// DialogueUI and other components subscribe to the events exposed here.
+    /// Wraps ILLMProvider and surfaces its output as C# events.
+    /// Assign the provider in the Inspector; subscribe from DialogueUI or your own UI.
     /// </summary>
     public class StreamHandler : MonoBehaviour
     {

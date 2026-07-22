@@ -5,10 +5,8 @@ using UnityEngine;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Assembles the system prompt from: character identity/personality, the
-    /// accumulated scene-knowledge prose across context layers, the resolved
-    /// key/value context (already merged by specificity in ContextAggregator),
-    /// and configurable response format rules. Sections are only included when non-empty.
+    /// Assembles the system prompt from personality, scene prose, context entries,
+    /// and response format rules. Empty sections are skipped.
     /// </summary>
     public class PromptBuilder
     {

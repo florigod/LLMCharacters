@@ -3,9 +3,7 @@ using System.Collections.Generic;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Maintains conversation history as a sliding window.
-    /// Older message pairs (user + assistant) are dropped first when the
-    /// window is full, preserving the most recent context for the LLM.
+    /// Sliding window over conversation history. Drops oldest pairs first when full.
     /// </summary>
     public class ConversationManager
     {

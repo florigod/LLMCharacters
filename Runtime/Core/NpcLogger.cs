@@ -6,15 +6,9 @@ using UnityEngine;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Per-session conversation logger. Writes JSONL (one JSON object per line) to
-    /// Application.persistentDataPath/LLMCharacters/logs/ for debugging and iteration.
-    ///
-    /// File path is printed to the Console when the session is created.
-    /// Copy the file contents and paste them when sharing logs for review.
-    ///
-    /// Token counts are estimated (~4 chars per token for English).
-    /// Cost is estimated using Haiku 4.5 pricing ($1.00/MTok input, $5.00/MTok output).
-    /// For exact counts, parse the message_start / message_delta SSE events from the API.
+    /// Writes per-turn JSONL logs to Application.persistentDataPath/LLMCharacters/logs/.
+    /// Token counts and costs are estimates (~4 chars/token, Haiku 4.5 pricing).
+    /// The file path is printed to Console when the session starts.
     /// </summary>
     public sealed class NpcLogger
     {
@@ -39,9 +33,7 @@ namespace LLMCharacters
             Debug.Log($"[LLM Characters] Logger ready → {FilePath}");
         }
 
-        /// <summary>
-        /// Log one completed conversation turn. Call this after the full response is received.
-        /// </summary>
+        /// <summary>Log one completed turn. Call after the full response is received.</summary>
         public void LogTurn(
             string model,
             string systemPrompt,
@@ -80,9 +72,7 @@ namespace LLMCharacters
                 $"{durationMs}ms | ~${cost:F5} (Haiku est.)");
         }
 
-        /// <summary>
-        /// Write a session summary entry. Call this from OnDestroy.
-        /// </summary>
+        /// <summary>Write a session summary entry. Called from OnDestroy.</summary>
         public void LogEnd()
         {
             if (_turnCount == 0) return;

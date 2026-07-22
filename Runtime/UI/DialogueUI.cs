@@ -7,15 +7,9 @@ using UnityEngine.UI;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Reference UI component. Fully event-driven: it subscribes to StreamHandler
-    /// events (OnRequestStarted, OnTokenReceived, OnResponseComplete, OnError) and
-    /// displays NPC responses with a typewriter effect, decoupled from the actual
-    /// rate tokens arrive at — a chunky/fast stream still reveals at a steady pace.
-    ///
-    /// It only calls into NPCBrain to send player input (SendPlayerMessage) and to
-    /// read the display name (CharacterName). Replace or extend this class with your
-    /// own UI by subscribing to the same StreamHandler events — the rest of the SDK
-    /// doesn't depend on it.
+    /// Reference dialogue UI. Subscribes to StreamHandler events and reveals text at
+    /// a fixed typewriter rate, decoupled from how fast tokens actually arrive.
+    /// Replace it with your own UI by subscribing to the same StreamHandler events.
     /// </summary>
     public class DialogueUI : MonoBehaviour
     {
@@ -60,9 +54,7 @@ namespace LLMCharacters
             if (sendButton != null)
                 sendButton.onClick.AddListener(OnSendClicked);
 
-            // onSubmit fires on Enter and is agnostic to the active input system
-            // (works whether the project uses the old Input Manager or the new
-            // Input System package).
+            // onSubmit fires on Enter — works with both Input Manager and Input System.
             if (playerInput != null)
                 playerInput.onSubmit.AddListener(OnInputSubmit);
 

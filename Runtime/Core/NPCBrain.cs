@@ -5,23 +5,17 @@ using UnityEngine;
 namespace LLMCharacters
 {
     /// <summary>
-    /// Main entry point. Drag onto the NPC's GameObject and wire up all
-    /// references in the Inspector. Call SendPlayerMessage() from your input
-    /// system or DialogueUI to start a conversation turn.
-    ///
-    /// NPCBrain is UI-agnostic: it drives the conversation and streaming through
-    /// StreamHandler's events. Any UI (DialogueUI or your own) subscribes to
-    /// those events directly — NPCBrain never references a UI component.
+    /// Main entry point. Attach to the NPC's GameObject and wire up references in the Inspector.
+    /// Call SendPlayerMessage() from your UI or input system to start a turn.
+    /// All output goes through StreamHandler events — this class never touches UI directly.
     /// </summary>
     public class NPCBrain : MonoBehaviour
     {
         [Header("Character")]
         [SerializeField] private NPCPersonality personality;
 
-        [Tooltip("Context layers for this NPC, in any order — precedence comes from " +
-                 "each provider's Specificity, not list order. Typically: a shared " +
-                 "WorldContext, optional shared group/type contexts, and this NPC's " +
-                 "own NPCContext.")]
+        [Tooltip("Context layers for this NPC. Order doesn't matter — precedence is driven by each " +
+                 "provider's Specificity. Typically: WorldContext + optional group contexts + this NPC's own NPCContext.")]
         [SerializeField] private List<ContextProviderBase> contextProviders = new();
 
         [Header("Connection")]
@@ -69,10 +63,7 @@ namespace LLMCharacters
             }
         }
 
-        /// <summary>
-        /// Send a player message and start a streaming response.
-        /// Safe to call from UI buttons or other MonoBehaviours.
-        /// </summary>
+        /// <summary>Start a conversation turn. Safe to call from UI buttons or any MonoBehaviour.</summary>
         public async void SendPlayerMessage(string userInput)
         {
             if (string.IsNullOrWhiteSpace(userInput)) return;
