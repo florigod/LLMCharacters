@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261516f72e85d400e91cf2c417b3755a, type: 3}
   m_Name: LLMConfigAnthropic
   m_EditorClassIdentifier: LLMNpcSDK.Runtime::LLMNpcSDK.LLMConfig
-  apiKey: REDACTED
   model: claude-haiku-4-5-20251001
   temperature: 0.7
   maxTokens: 300
