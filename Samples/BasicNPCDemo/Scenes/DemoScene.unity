@@ -4971,7 +4971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea32a64d053b4533aac53ff3e3a0676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LLMNpcSDK.Runtime::LLMNpcSDK.AnthropicProvider
-  apiKey: KeyPlaceHold
+  apiKey: Key-Placeholder
 --- !u!114 &1738746077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5019,12 +5019,12 @@ GameObject:
   - component: {fileID: 1757789163}
   - component: {fileID: 1757789162}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: WorldContextInjector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1757789161
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5208,12 +5208,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 561b115f24f2c43458b0e826e49d2df2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1990962598}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 929412431875194234, guid: 561b115f24f2c43458b0e826e49d2df2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 190745101}
   m_SourcePrefab: {fileID: 100100000, guid: 561b115f24f2c43458b0e826e49d2df2, type: 3}
+--- !u!4 &1895186268 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 561b115f24f2c43458b0e826e49d2df2, type: 3}
+  m_PrefabInstance: {fileID: 1895186267}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1920944067
 GameObject:
   m_ObjectHideFlags: 0
@@ -5724,7 +5732,7 @@ GameObject:
   - component: {fileID: 1990962596}
   - component: {fileID: 1990962595}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: FloorPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5817,12 +5825,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990962594}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.6, y: -1.89, z: -13.6}
-  m_LocalScale: {x: 5.87, y: 2.87, z: 5}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -2.4683256, y: -0.017271757, z: 1.1198444}
+  m_LocalScale: {x: 2.935, y: 1.435, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1895186268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1996086440
 PrefabInstance:
@@ -6039,12 +6047,11 @@ SceneRoots:
   m_Roots:
   - {fileID: 1255529774}
   - {fileID: 884297606}
+  - {fileID: 413602186}
   - {fileID: 86654074}
-  - {fileID: 1996086440}
   - {fileID: 1555024360}
+  - {fileID: 1996086440}
   - {fileID: 1153102074}
   - {fileID: 327005933}
   - {fileID: 970202034}
-  - {fileID: 1990962598}
   - {fileID: 1895186267}
-  - {fileID: 413602186}
