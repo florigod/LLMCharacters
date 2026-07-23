@@ -6,7 +6,7 @@
   "unity": "6000.0",
   "documentationUrl": "",
   "changelogUrl": "",
-  "licensesUrl": "",
+  "licensesUrl": "https://github.com/florigod/LLMCharacters/blob/main/LICENSE",
   "keywords": [
     "llm",
     "npc",
@@ -23,14 +23,14 @@
     "com.unity.ugui": "2.0.0"
   },
   "author": {
-    "name": "Juan Manuel Mathé",
+    "name": "Florian Mathe",
     "email": "mathe.florian.03@gmail.com"
   },
   "samples": [
     {
       "displayName": "Basic NPC Demo",
       "description": "A minimal scene with two NPCs (one on Anthropic, one on Ollama), dialogue UI, and a WeatherController showing dynamic world context injection.",
-      "path": "Samples/BasicNPCDemo"
+      "path": "Samples~/BasicNPCDemo"
     }
   ]
 }

@@ -31,13 +31,17 @@ NPCBrain → StreamHandler → ILLMProvider (Anthropic / Ollama / Mock)
 ![Context Layers](Media/ContextProviders.png)
 
 
-What an NPC knows is assembled from a stack of context layers, each with a `Specificity` value that determines precedence on key collisions:
+What an NPC knows is assembled from a stack of context layers. The system is designed to differentiate context by importance: each layer carries a `Specificity`, a number you assign, and when two layers define the same key the higher `Specificity` wins. Nothing here is fixed by the SDK, so the tiers below are just an example convention:
 
-| Layer | Specificity | Example |
+| Example layer | Specificity | What it might hold |
 |---|---|---|
 | World | 0 | weather, time of day, global events |
-| Location | 10 | tavern crowd, classroom students |
-| Individual | 100 | NPC backstory, secrets |
+| Zone | 10 | tavern crowd, classroom students |
+| Personal | 100 | NPC backstory, secrets |
+
+You can rename these, pick different numbers, or add layers in between (say, a "Guards" layer shared by every guard). The SDK only compares the `Specificity` values.
+
+Keep in mind that `Specificity` matters only for key collisions, when two layers write to the same key. It is not a general "importance" weight making one text prompt count for more than another: all prose is accumulated equally.
 
 Context is stored in ScriptableObjects. Two NPCs pointing at the same asset share it live, so a runtime `Set()` call is seen by all of them on their next turn, with no events or subscriptions needed.
 
@@ -84,18 +88,18 @@ The `ILLMProvider` interface decouples the SDK from any specific LLM backend. Ea
 <br>
 
 ## Showcase
-### Characters with personnality, reacting to dynamic World-Context injection. 
-Here we'll see how the player injects a new World Context "The player has just beaten the Demon God and saved the village", this can be done programatically in runtime for any relevant event (it is done via UI for the demo showcase). With that new context in place, the characters mold their answers and since it's a World-Context injection, it reaches all NPCs.
+### Characters with personality, reacting to dynamic World-Context injection. 
+Here we'll see how the player injects a new World Context "The player has just beaten the Demon God and saved the village", this can be done programmatically in runtime for any relevant event (it is done via UI for the demo showcase). With that new context in place, the characters mold their answers and since it's a World-Context injection, it reaches all NPCs.
 
 World Context Injection
 
 ![World Context injection](Media/InjectingDynamicContext.gif)
 
-Cat Answers with personnality and respecting dynamic context
+Cat Answers with personality and respecting dynamic context
 
 ![Cat reacts to dynamic context injection](Media/CatReactionToContext.gif)
 
-Bartender Answers with personnality and respecting dynamic context
+Bartender Answers with personality and respecting dynamic context
 
 ![Bartender reacts to dynamic context injection](Media/BarnReactionContext.gif)
 
@@ -112,7 +116,7 @@ Bartender Answers with personnality and respecting dynamic context
 Add via Unity Package Manager using the Git URL:
 
 ```
-https://github.com/florigod/llm-characters.git
+https://github.com/florigod/LLMCharacters.git
 ```
 
 Or clone and add as a local package.
