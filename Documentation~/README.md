@@ -163,6 +163,10 @@ The full path is printed to the Unity Console on session start. Each entry inclu
 
 ## Sample dependency
 
-The SDK runtime has no external dependencies. The **Basic NPC Demo** sample, however, uses the new Input System for player movement and camera control, so it requires the **Input System** package installed, with Active Input Handling set to "Input System (New)" or "Both". Install it before importing the sample, otherwise the demo scripts will not compile. This requirement applies only to the sample, not to the SDK itself.
+The SDK runtime has no external dependencies. The **Basic NPC Demo** sample, however, requires two packages installed **before** importing it. Both requirements apply only to the sample, not to the SDK itself.
+
+- **Input System** (`com.unity.inputsystem`): the demo uses the new Input System for player movement and camera control. Set Active Input Handling to "Input System (New)" or "Both". Without it the demo scripts will not compile.
+- **glTFast** (`com.unity.cloud.gltfast`): the cat character ships as a `.glb` model, which Unity imports through glTFast. Without it the model fails to import and the CatNPC appears as a missing prefab in the scene. (The other characters are `.fbx` and import natively.)
+- **TMP Essential Resources**: import them via Window > TextMeshPro > Import TMP Essential Resources. The dialogue canvases use TMP's default font (LiberationSans SDF), which ships with these resources. Without them the font references resolve to null and the canvases throw on render instead of showing.
 
 ## Author: Florian Mathe, 2026

@@ -121,7 +121,11 @@ https://github.com/florigod/LLMCharacters.git
 
 Or clone and add as a local package.
 
-The runtime has no external dependencies. The **Basic NPC Demo** sample, however, requires Unity's **Input System** package installed, with Active Input Handling set to "Input System (New)" or "Both". Install it before importing the sample, or its scripts will not compile.
+The runtime has no external dependencies. The **Basic NPC Demo** sample, however, needs two packages installed **before** importing it:
+
+- **Input System** (`com.unity.inputsystem`), with Active Input Handling set to "Input System (New)" or "Both". Without it the demo scripts will not compile.
+- **glTFast** (`com.unity.cloud.gltfast`), used to import the cat character's `.glb` model. Without it that model fails to import and the CatNPC shows up as a missing prefab in the scene.
+- **TMP Essential Resources** (Window > TextMeshPro > Import TMP Essential Resources). The dialogue canvases use TMP's default font; without these resources the text references stay null and the canvases fail to render.
 
 ## Documentation
 
