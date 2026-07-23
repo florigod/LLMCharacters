@@ -121,6 +121,8 @@ https://github.com/florigod/LLMCharacters.git
 
 Or clone and add as a local package.
 
+The runtime has no external dependencies. The **Basic NPC Demo** sample, however, requires Unity's **Input System** package installed, with Active Input Handling set to "Input System (New)" or "Both". Install it before importing the sample, or its scripts will not compile.
+
 ## Documentation
 
 Full API reference, context system details, and provider setup guides are in [`Documentation~/`](Documentation~/).

@@ -2,22 +2,27 @@
   "name": "com.juanmathe.llmcharacters",
   "version": "1.0.0",
   "displayName": "LLM Characters",
-  "description": "Connect Unity NPCs to Claude (Anthropic), Ollama, and other LLMs for natural in-game conversations with real-time token streaming. Features dynamic layered context, sliding history window, typewriter dialogue UI, and a provider interface for easy backend swapping.",
+  "description": "Connect Unity NPCs to cloud and local LLMs (Claude, Ollama, and more) for believable in-game conversations. A layered context system feeds live game state into every prompt, so characters react to events, weather, and secrets on the fly. All with an LLM-provider interface that lets you swap backends from the Inspector, for fast iteration with no code changes.",
   "unity": "6000.0",
   "documentationUrl": "",
   "changelogUrl": "",
   "licensesUrl": "https://github.com/florigod/LLMCharacters/blob/main/LICENSE",
   "keywords": [
     "llm",
+    "llm-npc",
     "npc",
     "ai",
+    "ai-npc",
+    "unity",
+    "gamedev",
     "claude",
     "anthropic",
     "ollama",
+    "local-llm",
     "dialogue",
-    "streaming",
-    "conversation",
-    "characters"
+    "context",
+    "characters",
+    "gpt"
   ],
   "dependencies": {
     "com.unity.ugui": "2.0.0"

@@ -159,4 +159,10 @@ Application.persistentDataPath/LLMCharacters/logs/<NPCName>_<timestamp>.jsonl
 
 The full path is printed to the Unity Console on session start. Each entry includes: system prompt, user message, NPC response, duration, estimated token counts, and estimated cost (Haiku 4.5 pricing).
 
+---
+
+## Sample dependency
+
+The SDK runtime has no external dependencies. The **Basic NPC Demo** sample, however, uses the new Input System for player movement and camera control, so it requires the **Input System** package installed, with Active Input Handling set to "Input System (New)" or "Both". Install it before importing the sample, otherwise the demo scripts will not compile. This requirement applies only to the sample, not to the SDK itself.
+
 ## Author: Florian Mathe, 2026
